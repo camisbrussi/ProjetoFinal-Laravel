@@ -21,3 +21,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//- Produtos
+Route::resource("produtos","ProductController")->names("product")->parameters(["produtos" => "product"]);
