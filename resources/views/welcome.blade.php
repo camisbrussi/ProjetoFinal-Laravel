@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -72,10 +72,9 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        <!--@if (Route::has('register'))
-                            <a href="{{ route('register') }}">Cadastro</a>
+                        @if (Route::has('register'))
                         @endif
-                    @endauth-->
+                    @endauth
 
                 </div>
             @endif

@@ -40,6 +40,36 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+        $erros = [];
+
+        if(empty($request->name)){
+            $erros['name'] = "Informe o nome do usuário";
+        }
+
+        if(empty($request->email)){
+            $erros['email'] = "Informe o e-mail do usuário";
+        }else{
+            $usuario = User::where('email',$request->email)->first();
+            if($usuario){
+                $erros['email'] = "Já existe um usuário cadastrado com esse e-mail";
+            }
+        }
+
+        if(empty($request->password)){
+            $erros['password'] = "Informe a senha de acesso";
+        }
+
+        if(empty($request->password_confirmation)){
+            $erros['password_confirmation'] = "Confirme a senha de acesso";
+        }
+
+        if($request->password != $request->password_confirmation){
+            $erros['password_confirmation'] = "As senhas informadas são diferentes";
+        }
+
+        if($erros){
+            return redirect()->back()->withInput()->withErrors($erros);
+        }
 
         $user = new User();
         $user->name = $request->name;
@@ -83,12 +113,36 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $erros = [];
+
+        if(empty($request->name)){
+            $erros['name'] = "Informe o nome do usuário";
+        }
+
+        if(empty($request->email)){
+            $erros['email'] = "Informe o e-mail do usuário";
+        }else{
+            $usuario = User::where('email',$request->email)->first();
+            if($usuario && $usuario->id != $user->id){
+                $erros['email'] = "Já existe um usuário cadastrado com esse e-mail";
+            }
+        }
+
+        if((!empty($request->password) || !empty($request->password_confirmation)) && $request->password != $request->password_confirmation){
+            $erros['password_confirmation'] = "As senhas informadas são diferentes";
+        }
+
+        if($erros){
+            return redirect()->back()->withInput()->withErrors($erros);
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
 
         if (!empty($request->Password)) {
             $user->password = Hash::make($request->password);
         }
+
         $user->save();
         return redirect()->route("user.show", $user->id);
     }

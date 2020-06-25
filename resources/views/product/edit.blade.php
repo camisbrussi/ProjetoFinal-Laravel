@@ -4,19 +4,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card ">
-                    <link rel="stylesheet" href="{{ asset('site/style.css') }}">
+                @if($errors->all())
+                    <div class="alert alert-danger" role="alert">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </div>
+                @endif
+                <div class="card">
                     <div class="card-header p-3 mb-2 bg-purple text-white">{{ __('Editar Produto') }}</div>
-
-                    @if($errors->all())
-                        <div class="alert alert-danger" role="alert">
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </div>
-                    @endif
                     <div class="card-body">
-
                     <form action="{{ route("product.update",['product' => $produto->id]) }}" method="post">
                         @csrf
                         @method("put")

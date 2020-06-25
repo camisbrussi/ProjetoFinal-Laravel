@@ -6,7 +6,13 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Cadastrar Usuário') }}</div>
-
+                    @if($errors->all())
+                        <div class="alert alert-danger" role="alert">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </div>
+                    @endif
                     <div class="card-body">
                         <form method="POST" action="{{ route('user.store') }}">
                             @csrf

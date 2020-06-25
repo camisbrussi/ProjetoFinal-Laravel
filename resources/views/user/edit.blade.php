@@ -4,21 +4,26 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if($errors->all())
+                    <div class="alert alert-danger" role="alert">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="card">
-                    <link rel="stylesheet" href="{{ asset('site/style.css') }}">
                     <div class="card-header p-3 mb-2 bg-purple text-white">{{ __('Editar Usuários') }}</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('user.store') }}">
+                        <form method="POST" action="{{ route("user.update",['user' => $usuario->id]) }}">
                             @csrf
                             @method("put")
-
                             <div class="form-group row">
                                 <label for="name" class="col-md-8">{{ __('Nome') }}</label>
 
                                 <div class="col-md-12">
                                     <input id="name" type="text" class="form-control "
                                            value="{{ $usuario->name }}" @error('name') is-invalid @enderror
-                                           name="name"  required autocomplete="name">
+                                           name="name" required autocomplete="name">
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">

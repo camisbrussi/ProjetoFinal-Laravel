@@ -1,8 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
-
-    <div class="container">
+        <div class="container">
         <div class="col-12 text-right mb-3">
             <a href="{{ route("product.create") }}" class="btn btn-success">Novo</a>
         </div>
@@ -25,16 +23,18 @@
                             <td>{{ $produto->id }}</td>
                             <td>{{ $produto->nome }}</td>
                             <td class="text-right">R$ {{ number_format($produto->valor,2,",",".") }}</td>
-                            {{--                        <td><a href="" title="Ver"><i class="fas fa-eye"></i></a></td>--}}
-                            {{--                        <td><a href="" title="Editar"><i class="fas fa-pen"></i></a></td>--}}
-                            {{--                        <td><a href="" title="Remover"><i class="fas fa-trash"></i></a></td>--}}
-                            <td class="text-center"><a href="{{ route("product.show",$produto->id) }}" title="Ver"><i class="fas fa-eye"></i></a></td>
-                            <td class="text-center"><a href="{{ route("product.edit",$produto->id)  }}" title="Editar"><i class="fas fa-pencil-alt"></i></a></td>
+                            <td class="text-center"><a href="{{ route("product.show",$produto->id) }}" title="Ver"><i
+                                        class="fas fa-eye"></i></a></td>
+                            <td class="text-center"><a href="{{ route("product.edit",$produto->id)  }}"
+                                                       title="Editar"><i class="fas fa-pencil-alt"></i></a></td>
                             <td class="text-center">
-                                <form id="form-delete" action="{{ route("product.destroy",['product' => $produto->id]) }}" method="post"><i class="fas fa-trash" aria-hidden="true"></i>
+                                <form id="form-delete-{{$produto->id}}"
+                                      action="{{ route("product.destroy",$produto->id) }}" method="post">
+
                                     @csrf
                                     @method("delete")
-                                    <a href="javascript:void(0)" onclick="document.getElementById('form-delete').submit()"></a>
+                                    <a href="javascript:void(0)"
+                                       onclick="document.getElementById('form-delete-{{$produto->id}}').submit()"><i class="fas fa-trash" aria-hidden="true"></i></a>
                                 </form>
                             </td>
                         </tr>
@@ -46,5 +46,4 @@
             @endif
         </div>
     </div>
-
 @endsection

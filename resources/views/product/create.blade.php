@@ -5,7 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <link rel="stylesheet" href="{{ asset('site/style.css') }}">
                     <div class="card-header p-3 mb-2 bg-purple text-white">{{ __('Cadastrar Produto') }}</div>
 
                     @if($errors->all())

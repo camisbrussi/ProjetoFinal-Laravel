@@ -25,17 +25,20 @@
                             <td>{{ $usuario->id }}</td>
                             <td>{{ $usuario->name }}</td>
                             <td>{{ $usuario->email }}</td>
-                            {{--                        <td><a href="" title="Ver"><i class="fas fa-eye"></i></a></td>--}}
-                            {{--                        <td><a href="" title="Editar"><i class="fas fa-pen"></i></a></td>--}}
-                            {{--                        <td><a href="" title="Remover"><i class="fas fa-trash"></i></a></td>--}}
-                            <td class="text-center"><a href="{{ route("user.show",$usuario->id) }}" title="Ver"><i class="fas fa-eye"></i></a></td>
-                            <td class="text-center"><a href="{{ route("user.edit",$usuario->id)  }}" title="Editar"><i class="fas fa-pencil-alt"></i></a></td>
+                            <td class="text-center"><a href="{{ route("user.show",$usuario->id) }}" title="Ver"><i
+                                        class="fas fa-eye"></i></a></td>
+
+                            <td class="text-center"><a href="{{ route("user.edit",$usuario->id)  }}" title="Editar"><i
+                                        class="fas fa-pencil-alt"></i></a></td>
+
                             <td class="text-center">
-                                <form id="form-delete" action="{{ route("user.destroy",['user' => $usuario->id]) }}" method="post"><i class="fas fa-trash" aria-hidden="true"></i>
-                                    @csrf
-                                    @method("delete")
-                                    <a href="javascript:void(0)" onclick="document.getElementById('form-delete').submit()"></a>
-                                </form>
+                                <form id="form-delete-{{$usuario->id}}" action="{{ route("user.destroy",$usuario->id) }}"
+                                      method="post">
+
+                            @csrf
+                            @method("delete")
+                            <a href="javascript:void(0)" onclick="document.getElementById('form-delete-{{$usuario->id}}').submit()"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                            </form>
                             </td>
                         </tr>
                     @endforeach
