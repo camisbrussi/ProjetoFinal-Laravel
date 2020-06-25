@@ -14,15 +14,15 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('site/style.css') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm-">
+            <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -39,6 +39,7 @@
                                     <i class="fas fa-pencil-alt"></i> Cadastros
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route("user.index") }}"><i class="far fa-user"></i> Usuários</a>
                                     <a class="dropdown-item" href="{{ route("product.index") }}"><i class="fas fa-plus"></i> Produtos</a>
                                 </div>
                             </li>
@@ -49,13 +50,9 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastro') }}</a>
-                                </li>
+
                             @endif
                         @else
                             <li class="nav-item dropdown">

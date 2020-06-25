@@ -5,19 +5,20 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Cadastrar Usuário') }}</div>
-
+                    <link rel="stylesheet" href="{{ asset('site/style.css') }}">
+                    <div class="card-header p-3 mb-2 bg-purple text-white">{{ __('Editar Usuários') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('user.store') }}">
                             @csrf
+                            @method("put")
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-8">{{ __('Nome') }}</label>
 
                                 <div class="col-md-12">
-                                    <input id="name" type="text" class="form-control value="{{ old('name') }}
-                                    "@error('name') is-invalid @enderror" name="name" required autocomplete="name"
-                                    autofocus>
+                                    <input id="name" type="text" class="form-control "
+                                           value="{{ $usuario->name }}" @error('name') is-invalid @enderror
+                                           name="name"  required autocomplete="name">
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -28,12 +29,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-8">{{ __('E-Mail') }}</label>
+                                <label for="email"
+                                       class="col-md-8">{{ __('E-Mail') }}</label>
 
                                 <div class="col-md-12">
-                                    <input id="email" type="email"
-                                           class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email" class="form-control "
+                                           value="{{ $usuario->email }}" @error('email') is-invalid @enderror
+                                           name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -78,5 +80,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

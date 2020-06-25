@@ -1,1 +1,9 @@
-//@import "bootstrap/scss/bootstrap";
+$theme-colors: (
+    "primary": #0074d9,
+    "orange": #ff2d28,
+    "purple": #3d1c8a
+);
+
+
+
+@import "~bootstrap/scss/bootstrap";
