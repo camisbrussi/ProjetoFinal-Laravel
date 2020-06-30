@@ -466,7 +466,7 @@ __webpack_require__.r(__webpack_exports__);
 var _WINDOW = {};
 try {
   if (typeof window !== 'undefined') _WINDOW = window;
-
+  
 } catch (e) {}
 
 var _ref = _WINDOW.navigator || {};
@@ -1447,7 +1447,7 @@ __webpack_require__.r(__webpack_exports__);
 var _WINDOW = {};
 try {
   if (typeof window !== 'undefined') _WINDOW = window;
-
+  
 } catch (e) {}
 
 var _ref = _WINDOW.navigator || {};
@@ -2448,7 +2448,7 @@ __webpack_require__.r(__webpack_exports__);
 var _WINDOW = {};
 try {
   if (typeof window !== 'undefined') _WINDOW = window;
-
+  
 } catch (e) {}
 
 var _ref = _WINDOW.navigator || {};

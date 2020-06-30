@@ -3,8 +3,10 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            @if(\Illuminate\Support\Facades\Auth::check())
             <div class="col-md-8">
                 <div class="card">
+
                     <div class="card-header">{{ __('Cadastrar Usuário') }}</div>
                     @if($errors->all())
                         <div class="alert alert-danger" role="alert">
@@ -83,6 +85,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection

@@ -4,6 +4,7 @@
 
     <div class="container">
         <div class="col-12 text-right mb-3">
+            @if(\Illuminate\Support\Facades\Auth::check())
             <a href="{{ route("user.create") }}" class="btn btn-success">Novo</a>
         </div>
         <div class="col-12">
@@ -46,6 +47,7 @@
                 </table>
             @else
                 <p>Nenhum usuário cadastrado</p>
+            @endif
             @endif
         </div>
     </div>

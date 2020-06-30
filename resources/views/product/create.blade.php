@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            @if(\Illuminate\Support\Facades\Auth::check())
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header p-3 mb-2 bg-purple text-white">{{ __('Cadastrar Produto') }}</div>
@@ -39,6 +40,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection
