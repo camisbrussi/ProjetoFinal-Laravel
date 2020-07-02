@@ -35,7 +35,7 @@
                                     @csrf
                                     @method("delete")
                                     <a href="javascript:void(0)"
-                                       onclick="document.getElementById('form-delete-{{$produto->id}}').submit()"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                                       onclick="if(confirm('Deseja realmente remover este item?')){ document.getElementById('form-delete-{{$produto->id}}').submit() }"><i class="fas fa-trash" aria-hidden="true"></i></a>
                                 </form>
                             </td>
                         </tr>

@@ -33,13 +33,11 @@
                                         class="fas fa-pencil-alt"></i></a></td>
 
                             <td class="text-center">
-                                <form id="form-delete-{{$usuario->id}}" action="{{ route("user.destroy",$usuario->id) }}"
-                                      method="post">
-
-                            @csrf
-                            @method("delete")
-                            <a href="javascript:void(0)" onclick="document.getElementById('form-delete-{{$usuario->id}}').submit()"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                            </form>
+                                <form id="form-delete-{{$usuario->id}}" action="{{ route("user.destroy",$usuario->id) }}" method="post">
+                                    @csrf
+                                    @method("delete")
+                                    <a href="javascript:void(0)" onclick="if(confirm('Deseja realmente remover este item?')){ document.getElementById('form-delete-{{$usuario->id}}').submit() }"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

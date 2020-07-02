@@ -23,7 +23,7 @@
                             <form id="form-delete" method="post" action="{{ route("product.destroy",$produto->id) }}">
                                 @csrf
                                 @method("delete")
-                                <a href="javascript:void(0)" onclick="document.getElementById('form-delete').submit()"
+                                <a href="javascript:void(0)" onclick="if(confirm('Deseja realmente remover este item?')){ document.getElementById('form-delete').submit() }"
                                    class="btn btn-danger float-right">Remover</a>
                             </form>
                         </div>
