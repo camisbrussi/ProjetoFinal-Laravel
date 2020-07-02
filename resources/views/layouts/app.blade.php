@@ -82,5 +82,17 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="{{ asset("site/jquery.js")  }}"></script>
+    <script src="{{ asset("site/jquery.maskMoney.min.js") }}"></script>
+
+    <script>
+        $(document).ready(function($){
+            $(".valor").maskMoney({
+                thousands:".",
+                decimal:","
+            });
+        });
+    </script>
 </body>
 </html>

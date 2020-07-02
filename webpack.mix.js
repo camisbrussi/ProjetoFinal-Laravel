@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix
     .js('resources/js/app.js', 'public/js')
     .js('resources/js/fonta-wesome.js', 'public/site/fonta-wesome.js')
+    .js('resources/js/jquery.maskMoney.min.js', 'public/site/jquery.maskMoney.min.js')
     .sass('resources/sass/app.scss', 'public/css')
 
     .sass('resources/views/scss/style.scss','public/site/style.css')

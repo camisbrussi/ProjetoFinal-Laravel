@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/site/style.css": "/site/style.css",
     "/site/fonta-wesome.js": "/site/fonta-wesome.js",
+    "/site/jquery.maskMoney.min.js": "/site/jquery.maskMoney.min.js",
     "/site/jquery.js": "/site/jquery.js",
     "/site/bootstrap.js": "/site/bootstrap.js"
 }

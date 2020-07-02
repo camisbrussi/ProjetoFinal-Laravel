@@ -5681,7 +5681,7 @@ _fortawesome_fontawesome__WEBPACK_IMPORTED_MODULE_0__["default"].library.add(_fo
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/ProejetoLaravel/ProjetoFinal/ProjetoFinal/resources/js/fonta-wesome.js */"./resources/js/fonta-wesome.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ProjetoFinal\resources\js\fonta-wesome.js */"./resources/js/fonta-wesome.js");
 
 
 /***/ })
