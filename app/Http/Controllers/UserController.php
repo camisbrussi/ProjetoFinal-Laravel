@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,6 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+
         $user = User::all();
         return view("user.listAll", ["usuarios" => $user]);
     }
@@ -27,6 +32,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+
         return view("auth.register");
 
     }
@@ -88,6 +97,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+
         return view("user.list", ["usuario" => $user]);
     }
 
@@ -99,6 +112,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+
         return view("user.edit", [
             'usuario' => $user
         ]);

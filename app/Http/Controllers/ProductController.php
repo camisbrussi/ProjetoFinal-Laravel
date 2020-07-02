@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -14,6 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+
         $produtos = Product::all();
         return view("product.listAll",["produtos" => $produtos]);
     }
@@ -25,6 +30,10 @@ class ProductController extends Controller
      */
     public function create()
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+
         return view("product.create");
     }
 
@@ -67,6 +76,10 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+
         return view("product.list",["produto" => $product]);
     }
 
@@ -78,6 +91,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        if(Auth::check() !== true){
+            return redirect()->route("login");
+        }
+        
         return view("product.edit",["produto" => $product]);
     }
 
